@@ -1,0 +1,29 @@
+:root {
+    --primary-color: #2F80ED;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main {
+    margin: 0 40px;
+    position: relative;
+}
+
+.alert-enter {
+    opacity: 0;
+}
+
+.alert-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+.alert-exit {
+    opacity: 1;
+}
+.alert-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+}
