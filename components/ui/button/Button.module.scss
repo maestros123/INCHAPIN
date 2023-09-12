@@ -1,0 +1,67 @@
+.button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: 100px;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 13px;
+
+  @media (min-width: 1770px) {
+    font-size: 15px;
+  }
+  @media (max-width: 1280px) {
+    font-size: 12px;
+  }
+}
+
+.header {
+  padding: 15px 20px;
+
+  @media (min-width: 1770px) {
+    padding: 18px 26px;
+  }
+  @media (max-width: 1280px) {
+    padding: 15.5px 20px;
+  }
+  @media (max-width: 1023px) {
+    padding: 15.5px 18px;
+  }
+
+
+  div {
+    height: 15px;
+    overflow: hidden;
+
+    p {
+      position: relative;
+      top: 0;
+      transition: 0.3s;
+
+      &:before {
+        content: "Выбрать квартиру";
+        text-transform: uppercase;
+        position: absolute;
+        bottom: -15px;
+      }
+    }
+  }
+
+  &:hover p {
+    top: -15px;
+  }
+
+  &:after {
+    content: '';
+    background: url("../../../public/arrow-down.svg") no-repeat center;
+    width: 12px;
+    height: 13px;
+    margin-left: 10px;
+  }
+
+}
+.form {
+  padding: 24px 69px;
+}

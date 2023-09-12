@@ -1,0 +1,234 @@
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+
+  .about {
+    grid-column: 1/6;
+    justify-self: end;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 17px;
+    margin-bottom: 35px;
+  }
+
+  .image {
+    grid-column: 1/6;
+    width: 567px;
+    position: relative;
+
+    @media (min-width: 1770px) {
+      width: 733px;
+    }
+    @media (max-width: 1280px) {
+      width: 408px;
+    }
+    @media (max-width: 1023px) {
+      margin-left: -40px;
+      grid-column: 1/5;
+    }
+    @media (max-width: 767px) {
+      width: 100%;
+      margin-left: -20px;
+      grid-column: 1/11;
+    }
+  }
+  .round {
+    position: absolute;
+    top: 114px;
+    right: -17.5%;
+    width: 200px;
+    height: 200px;
+
+    @media (min-width: 1770px) {
+      width: 259px;
+      height: 259px;
+    }
+    @media (max-width: 1280px) {
+      width: 148px;
+      height: 148px;
+    }
+  }
+}
+
+
+
+.info {
+  grid-column: 8/12;
+  text-transform: uppercase;
+
+  @media (max-width: 1023px) {
+    grid-column: 8/13;
+  }
+
+  @media (max-width: 767px) {
+    grid-column: 1/12;
+  }
+
+
+  .safeLife {
+    margin-top: 50px;
+    font-size: 26px;
+
+    @media (min-width: 1770px) {
+      font-size: 34px;
+      margin-top: 65px;
+      margin-right: -21px;
+    }
+    @media (max-width: 1280px) {
+      font-size: 19px;
+      margin-top: 35px;
+    }
+    @media (max-width: 1023px) {
+      margin-top: 30px;
+    }
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
+  }
+
+  span {
+    color: var(--primary-color);
+  }
+
+  .description {
+    font-size: 20px;
+    margin-top: 120px;
+    text-transform: uppercase;
+
+    @media (min-width: 1770px) {
+      font-size: 20px;
+      margin-top: 120px;
+    }
+    @media (max-width: 1280px) {
+      font-size: 12px;
+      margin-top: 65px;
+    }
+    @media (max-width: 1023px) {
+      margin-top: 20px;
+    }
+    @media (max-width: 767px) {
+      font-size: 11px;
+      margin-top: 40px;
+    }
+
+}
+  .videoWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 96px;
+
+    @media (min-width: 1770px) {
+      font-size: 18px;
+      margin-top: 100px;
+    }
+    @media (max-width: 1280px) {
+      font-size: 10px;
+      margin-top: 60px;
+    }
+    @media (max-width: 1023px) {
+      margin-top: 30px;
+    }
+    @media (max-width: 767px) {
+      font-size: 11px;
+      margin-top: 40px;
+    }
+
+
+    .videoText {
+      font-size: 14px;
+      font-weight: bold;
+
+      span {
+        font-weight: normal;
+        color: #111111;
+        opacity: .5;
+      }
+    }
+
+    .videoPlay {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 186px;
+      height: 186px;
+
+      @media (min-width: 1770px) {
+        width: 241px;
+        height: 241px;
+      }
+      @media (max-width: 1280px) {
+        width: 133px;
+        height: 133px;
+      }
+
+      @media (max-width: 767px) {
+        width: 131px;
+        height: 131px;
+      }
+
+      p {
+        color: #fff;
+        position: relative;
+        width: 110px;
+        height: 110px;
+        border: 1px solid #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        font-size: 14px;
+
+        @media (min-width: 1770px) {
+          width: 142px;
+          height: 142px;
+          font-size: 18px;
+        }
+        @media (max-width: 1280px) {
+          width: 79px;
+          height: 79px;
+          font-size: 10px;
+        }
+
+        @media (max-width: 767px) {
+          width: 77px;
+          height: 77px;
+        }
+
+
+        &:before {
+          content: '';
+          background: url("../../public/play.svg") no-repeat center;
+          width: 10px;
+          height: 11px;
+          margin-right: 5px;
+          transition: 1s;
+        }
+
+        &:hover {
+          &:before {
+            transform: scale(4,4) translateX(50%);
+          }
+          &:after {
+            transform: translateX(250%);
+          }
+        }
+
+        &:after {
+          content: 'PLAY';
+          transition: 1s;
+        }
+
+
+      }
+    }
+  }
+
+}
