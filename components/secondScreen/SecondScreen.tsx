@@ -1,8 +1,14 @@
 import styles from './SecondScreen.module.scss'
 import Image from 'next/image'
+import Round from '../../assets/round.svg'
+import Dash from '../../assets/dash.svg'
+import React, {FC} from "react";
 
+type SecondScreenProps = {
+    setVideoOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const SecondScreen = ({setVideoOpen}) => {
+const SecondScreen:FC<SecondScreenProps> = ({setVideoOpen}) => {
 
     function openVideo() {
         setVideoOpen(prev => !prev);
@@ -23,29 +29,18 @@ const SecondScreen = ({setVideoOpen}) => {
                     }}
                 />
                 <div className={styles.round}>
-                    <Image
-                        fill
-                        src="/round.png"
-                        alt="round"
-                        sizes="(max-width: 1769px) 200px, (max-width: 1280px) 148px, 259px"
-                    />
+                    <Round />
                 </div>
             </div>
             <div className={styles.info}>
-
-                <Image
-                    src="/dash.svg"
-                    alt="dash"
-                    width={63}
-                    height={12}
-                />
+                <Dash/>
                 <div className={styles.safeLife}>
                     <p>уютное и безопасное<br /> пространство для счастливой,<br /> <span>спокойной и размеренной жизни</span></p>
                 </div>
 
 
                 <div className={styles.description}>
-                    <p><span>Квартиры от 65 до 356 м2 с чистовой отделкой</span>,<br /> балконами, лоджиями и террасами В собственной ЗАКРЫТОЙ охраняемой территориИ.</p>
+                    <p><span>Квартиры от 75 до 300 м<sup>2</sup> с чистовой отделкой</span>,<br /> балконами, лоджиями и террасами В собственной ЗАКРЫТОЙ охраняемой территориИ.</p>
                 </div>
 
                 <div className={styles.videoWrapper} onClick={openVideo}>

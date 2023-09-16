@@ -48,52 +48,24 @@
     }
   }
 
-  &:hover {
-
-    .menuIcon {
-      &:before {
-        top: -8px;
-      }
-
-      &:after {
-        top: 8px;
-      }
-    }
-
-  }
-
   .menuIcon {
     width: 32px;
-    height: 2px;
-    position: relative;
-    margin-right: 12px;
+    margin-right: 10px;
+
+    svg {
+      width: 40px;
+      height: auto;
+
+    }
+      path {
+        stroke: var(--primary-color);
+    }
 
     @media (min-width: 1770px) {
-      margin-right: 15px;
+      margin-right: 10px;
     }
     @media (max-width: 1280px) {
       margin-right: 10px;
-    }
-
-    &:before {
-      content: '';
-      background-image: url("../../public/burger.png");
-      position: absolute;
-      width: 32px;
-      height: 2px;
-      top: -6px;
-      transition: .3s;
-
-    }
-
-    &:after {
-      content: '';
-      background-image: url("../../public/burger.png");
-      position: absolute;
-      width: 32px;
-      height: 2px;
-      top: 6px;
-      transition: .3s;
     }
   }
 
@@ -121,12 +93,14 @@
 
 .logo {
   grid-column: 6/8;
-  display: flex;
+  justify-self: center;
   position: relative;
-  justify-content: center;
   transition: .5s;
   width: 156px;
-  height: 25px;
+
+  svg path {
+    fill: var(--primary-color);
+  }
 
   @media (min-width: 1770px) {
     width: 187px;

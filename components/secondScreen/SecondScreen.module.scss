@@ -41,6 +41,8 @@
     right: -17.5%;
     width: 200px;
     height: 200px;
+    box-sizing: border-box;
+
 
     @media (min-width: 1770px) {
       width: 259px;
@@ -58,6 +60,14 @@
 .info {
   grid-column: 8/12;
   text-transform: uppercase;
+
+  svg {
+    width: 50px;
+
+    path {
+      fill: var(--primary-color);
+    }
+  }
 
   @media (max-width: 1023px) {
     grid-column: 8/13;

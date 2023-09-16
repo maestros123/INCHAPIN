@@ -1,47 +1,71 @@
 :root {
-    --primary-color: #2F80ED;
+  --primary-color: rgb(25, 118, 210);
+  --hover-color: rgb(21, 101, 192);
 }
+
+[data-theme="teal"] {
+  --primary-color: #0d9488;
+  --hover-color: #0f766e;
+}
+
+[data-theme="rose"] {
+  --primary-color: #9f1239;
+  --hover-color: #881337;
+}
+[data-theme="purple"] {
+  --primary-color: #6b21a8;
+  --hover-color: #581c87;
+}
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
 
 main {
-    margin: 0 40px;
-    position: relative;
+  margin: 0 40px;
+  position: relative;
 
-    @media (min-width: 1770px) {
-        margin: 0 80px;
-    }
-    @media (max-width: 1280px) {
-        margin: 0 30px;
-    }
-    @media (max-width: 1023px) {
-        margin: 0 40px;
-    }
-    @media (max-width: 767px) {
-        margin: 0 20px;
-    }
+  @media (min-width: 1770px) {
+    margin: 0 80px;
+  }
+  @media (max-width: 1280px) {
+    margin: 0 30px;
+  }
+  @media (max-width: 1023px) {
+    margin: 0 40px;
+  }
+  @media (max-width: 767px) {
+    margin: 0 20px;
+  }
 }
 
 .alert-enter {
-    opacity: 0;
+  opacity: 0;
 }
 
 .alert-enter-active {
-    opacity: 1;
-    transition: opacity 500ms;
+  opacity: 1;
+  transition: opacity 500ms;
 }
 
 .alert-exit {
-    opacity: 1;
+  opacity: 1;
 }
+
 .alert-exit-active {
-    opacity: 0;
-    transition: opacity 500ms;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+svg {
+  circle {
+    fill: var(--primary-color)
+  }
 }

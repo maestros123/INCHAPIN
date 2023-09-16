@@ -1,7 +1,13 @@
 import styles from "./Modal.module.scss";
 import Image from 'next/image'
+import React, {FC, ReactNode} from "react";
 
-const Modal = ({ onCloseAction, children }) => {
+type ModalProps = {
+    onCloseAction: React.Dispatch<React.SetStateAction<boolean>>;
+    children: ReactNode;
+};
+
+const Modal:FC<ModalProps> = ({ onCloseAction, children }) => {
 
     function closeModal() {
         onCloseAction(prev => !prev);

@@ -1,10 +1,14 @@
 import styles from './Header.module.scss'
-import Button from "@/components/ui/button/Button";
-import Image from "next/image";
 import SelectButton from "@/components/select/Select";
+import Logo from '../../assets/logo.svg';
+import Burger from '../../assets/burger.svg';
+import React, {FC} from "react";
 
+type HeaderProps = {
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const Header = ({setOpen}) => {
+const Header: FC<HeaderProps> = ({setOpen}) => {
 
     function handleClick() {
         setOpen(prev => !prev);
@@ -14,13 +18,7 @@ const Header = ({setOpen}) => {
         <header className={styles.container}>
             <div className={styles.menu}>
                 <div className={styles.menuIcon}>
-                    <Image
-                        fill
-                        src="/burger.png"
-                        alt="burger icon"
-                        sizes="(max-width: 1769px) 32px, (max-width: 767px) 29px, 38px"
-                    />
-
+                    <Burger />
                 </div>
                 <p>МЕНЮ</p>
             </div>
@@ -28,12 +26,9 @@ const Header = ({setOpen}) => {
                 <SelectButton/>
             </div>
             <div className={styles.logo}>
-                <Image
-                    fill
-                    src="/logo.svg"
-                    alt="logo"/>
+                <Logo/>
             </div>
-            <div className={styles.phone}>+7 495 527 21 21</div>
+            <div className={styles.phone}>+7 495 999 99 99</div>
             <div className={styles.callRequest} onClick={handleClick}>
                 <p>ЗАКАЗАТЬ ЗВОНОК</p>
             </div>

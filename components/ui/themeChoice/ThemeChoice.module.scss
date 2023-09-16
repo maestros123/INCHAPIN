@@ -1,0 +1,40 @@
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  background-color: #eaeaea;
+  padding: 15px;
+  right: 10px;
+  bottom: 10px;
+  width: 100px;
+
+  li {
+    list-style-type: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.blue {
+    background-color: rgb(25, 118, 210);
+}
+
+.teal {
+  background-color: #0d9488;
+}
+.rose {
+  background-color: #9f1239;
+}
+.purple {
+  background-color: #6b21a8;
+}
+.active {
+  outline: 1px solid blue;
+}

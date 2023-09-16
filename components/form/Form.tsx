@@ -1,14 +1,18 @@
 import styles from './Form.module.scss'
 import InputMask from 'react-input-mask';
 import Button from "@/components/ui/button/Button";
-import {useState} from "react";
+import {FC, useState} from "react";
 import Modal from "@/components/modal/Modal";
 
-const Form = ({setOpen}) => {
+interface FormProps {
+    setOpen: (open:boolean) => void;
+}
 
-    const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [email, setEmail] = useState('');
+const Form: FC<FormProps> = ({setOpen}) => {
+
+    const [name, setName] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
 
       function handleFormSubmit() {
         console.log('Имя:', name);
@@ -46,7 +50,7 @@ const Form = ({setOpen}) => {
                     <label>E-mail</label>
                 </div>
                 <div className={styles.personal}>
-                    <p>Нажимая на кнопку «Отправить», вы ознакомлены и соглашаетесь с <span>политикой обработки персональных
+                    <p>Нажимая на кнопку «Отправить», вы ознакомлены и соглашаетесь с <br/><span>политикой обработки персональных
                         данных</span></p>
                 </div>
                 <div className={styles.button}>

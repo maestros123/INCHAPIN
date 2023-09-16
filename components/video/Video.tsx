@@ -1,19 +1,25 @@
 import styles from "./Video.module.scss";
 import Modal from "@/components/modal/Modal";
+import ReactPlayer from "react-player";
+import React, {FC} from "react";
 
-const Video = ({setVideoOpen}) => {
+
+type VideoProps = {
+    setVideoOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Video:FC<VideoProps> = ({setVideoOpen}) => {
 
     return (
         <Modal onCloseAction={() => setVideoOpen(false)}>
             <div className={styles.wrapper}>
-                <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                    title="YouTube video"
+                <ReactPlayer
+                    url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+                    playing={true}
                     width="100%"
-                    height="100%"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                ></iframe>
+                    height="100vh"
+                    controls={true}
+                />
             </div>
         </Modal>
 

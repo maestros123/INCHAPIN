@@ -1,15 +1,20 @@
-import {useState} from "react";
+import {FC, useState} from "react";
 import Select from 'react-select';
 import styles from './SelectButton.module.scss'
-import './SelectButton.scss'
 
-const SelectButton = () => {
-    const [selectedOption, setSelectedOption] = useState({value: 'default', label: 'Выбрать квартиру'});
+type SelectButtonProps = {
+    value: string;
+    label: string;
+};
 
-    const options = [
-        {value: 'apartment-1', label: 'Однокомнатная'},
-        {value: 'apartment-2', label: 'Двухкомнатная'},
-        {value: 'apartment-3', label: 'Трехкомнатная'},
+const SelectButton:FC<SelectButtonProps> = () => {
+    const [selectedOption, setSelectedOption] = useState<SelectButtonProps>({value: 'default', label: 'Выбрать квартиру'});
+
+    const options: SelectButtonProps[] = [
+        {value: 'apartment-1', label: 'Дуплекс'},
+        {value: 'apartment-2', label: 'Таунхаус'},
+        {value: 'apartment-3', label: 'Пентхаус'},
+        {value: 'apartment-4', label: 'Атриумариум'},
     ]
 
 
@@ -27,7 +32,6 @@ const SelectButton = () => {
             overflow: 'hidden',
             padding: '0 14px',
             width: '100%',
-            boxShadow: state.isFocused ? 'none' : null,
         }),
         indicatorSeparator: (provided, state) => ({
             ...provided,
@@ -43,30 +47,25 @@ const SelectButton = () => {
         }),
         menu: (provided, state) => ({
             ...provided,
-            widths: '100%'
+            width: '100%'
         }),
-        singleValue: (provided, state) => {
-            const transition = 'transform 300ms';
-            const transform = state.isFocused ? 'translateY(-100%)' : 'translateY(0)';
-            const color = '#ffffff';
+        singleValue: (provided, state) => ({
+            ...provided,
+            width: '100%',
+            color: '#ffffff'
 
-            return { ...provided, transition, transform, color };
-        },
-        placeholder: (provided, state) => {
-            const transition = 'transform 300ms';
-            const transform = state.isFocused ? 'translateY(-100%)' : 'translateY(0)';
-            const color = '#ffffff';
 
-            return { ...provided, transition, transform, color };
-        }
+        }),
+        placeholder: (provided, state) => ({
+            ...provided,
+            color : '#ffffff'
+        })
     };
 
     return (
         <div className={styles.container}>
-            <div className={styles.wrapper}>
-                <p className={styles.choice}>{selectedOption.label}</p>
-            </div>
             <Select
+                id="my-custom-id"
                 styles={customStyles}
                 classNamePrefix="select"
                 value={selectedOption}

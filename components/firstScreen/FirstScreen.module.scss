@@ -67,21 +67,23 @@
     justify-self: end;
     position: relative;
     width: 717px;
-    height: 114px;
+
+    svg path {
+      fill: #111111;
+    }
 
     @media (min-width: 1770px) {
       width: 862px;
-      height: 137px;
     }
     @media (max-width: 1280px) {
       width: 554px;
-      height: 88px;
+
     }
     @media (max-width: 1023px) {
       grid-column: 1/13;
       justify-self: start;
       width: 688px;
-      height: 109px;
+
     }
     @media (max-width: 767px) {
       grid-column: 1/12;

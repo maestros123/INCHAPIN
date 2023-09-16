@@ -1,31 +1,21 @@
 'use client'
-import localFont from 'next/font/local'
+import {Roboto} from 'next/font/google'
 import FirstScreen from "@/components/firstScreen/FirstScreen";
 import SecondScreen from "@/components/secondScreen/SecondScreen";
 import {useEffect, useState} from "react";
 import Form from "@/components/form/Form";
-import { CSSTransition } from 'react-transition-group';
+import {CSSTransition} from 'react-transition-group';
 import Video from "@/components/video/Video";
+import {ThemeProvider} from "@/context/ThemeContext";
+import ThemeChoice from "@/components/ui/themeChoice/ThemeChoice";
 
-const ProximaNova = localFont({
-    src: [
-        {
-            path: '../public/fonts/ProximaNova-Regular.woff',
-            weight: 'normal',
-            style: 'normal',
-        },
-        {
-            path: '../public/fonts/ProximaNova-Bold.woff',
-            weight: 'bold',
-            style: 'normal',
-        },
-        {
-            path: '../public/fonts/ProximaNova-Semibold.woff',
-            weight: '600',
-            style: 'normal',
-        },
-    ],
+
+const roboto = Roboto({
+    weight: '400',
+    subsets: ['latin'],
+    display: 'swap',
 })
+
 
 export default function Home() {
     const [open, setOpen] = useState(false)
@@ -64,25 +54,29 @@ export default function Home() {
     }, [open, videoOpen]);
 
     return (
-    <main className={ProximaNova.className}>
-      <FirstScreen setOpen={setOpen} />
-      <SecondScreen setVideoOpen={setVideoOpen}/>
-        <CSSTransition
-            in={open}
-            timeout={500}
-            classNames="alert"
-            unmountOnExit
-        >
-            <Form setOpen={setOpen}/>
-        </CSSTransition>
-        <CSSTransition
-            in={videoOpen}
-            timeout={500}
-            classNames="alert"
-            unmountOnExit
-        >
-            <Video setVideoOpen={setVideoOpen}/>
-        </CSSTransition>
-    </main>
-  )
+        <ThemeProvider>
+            <main className={roboto.className}>
+                <FirstScreen setOpen={setOpen}/>
+                <SecondScreen setVideoOpen={setVideoOpen}/>
+                <CSSTransition
+                    in={open}
+                    timeout={500}
+                    classNames="alert"
+                    unmountOnExit
+                >
+                    <Form setOpen={setOpen}/>
+                </CSSTransition>
+                <CSSTransition
+                    in={videoOpen}
+                    timeout={500}
+                    classNames="alert"
+                    unmountOnExit
+                >
+                    <Video setVideoOpen={setVideoOpen}/>
+                </CSSTransition>
+
+            </main>
+            <ThemeChoice />
+        </ThemeProvider>
+    )
 }
