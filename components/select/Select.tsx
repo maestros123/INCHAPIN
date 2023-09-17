@@ -1,16 +1,12 @@
 import {FC, useState} from "react";
-import Select from 'react-select';
+import Select, {StylesConfig} from 'react-select';
 import styles from './SelectButton.module.scss'
 
-type SelectButtonProps = {
-    value: string;
-    label: string;
-};
 
-const SelectButton:FC<SelectButtonProps> = () => {
-    const [selectedOption, setSelectedOption] = useState<SelectButtonProps>({value: 'default', label: 'Выбрать квартиру'});
+const SelectButton:FC = () => {
+    const [selectedOption, setSelectedOption] = useState({value: 'default', label: 'Выбрать квартиру'});
 
-    const options: SelectButtonProps[] = [
+    const options = [
         {value: 'apartment-1', label: 'Дуплекс'},
         {value: 'apartment-2', label: 'Таунхаус'},
         {value: 'apartment-3', label: 'Пентхаус'},
@@ -18,7 +14,7 @@ const SelectButton:FC<SelectButtonProps> = () => {
     ]
 
 
-    const customStyles = {
+    const customStyles: StylesConfig<any, false> = {
         container: (base) => ({
             ...base,
             width: '100%',

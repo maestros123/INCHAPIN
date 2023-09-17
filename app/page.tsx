@@ -29,7 +29,7 @@ export default function Home() {
 
     useEffect(() => {
         // Функция для обработки нажатия клавиши
-        const handleKeyDown = (e) => {
+        const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape' && open) {
                 setOpen(false);
             }
